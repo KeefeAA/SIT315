@@ -1,5 +1,3 @@
-int sensorState = 0;
-
 #define SENSOR_PIN 2
 #define LED_BUILTIN 3
 
