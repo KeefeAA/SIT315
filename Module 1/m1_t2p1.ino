@@ -1,25 +1,31 @@
 #define sensorPin 2
 #define ledBuiltIn 3
 
-uint8_t ledState = LOW;
-
 void setup()
 {
   Serial.begin(9600);
-  
-  pinMode(sensorPin, INPUT);  
+  pinMode(sensorPin, INPUT);
   pinMode(ledBuiltIn, OUTPUT);
 
-  attachInterrupt(digitalPinToInterrupt(sensorPin), toggle, FALLING);
-  
   Serial.println("Motion Sensing");  
 }
 
-void loop(){
-	delay(500);
-}
-
-void toggle(){
-	ledState = !ledState;
-	digitalWrite(ledBuiltIn, ledState);
+void loop()
+{
+  int sensorValue = digitalRead(sensorPin);
+  
+  
+  if(sensorValue == HIGH){
+    Serial.println("Motion Detected");
+    
+    digitalWrite(ledBuiltIn, HIGH);
+    delay(750);
+  }
+  
+  else{
+    Serial.println("No motion");
+    digitalWrite(ledBuiltIn, LOW);
+    delay(750);
+  }
+  
 }
