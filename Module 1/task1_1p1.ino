@@ -1,5 +1,3 @@
-// C++ code
-//
 int sensorState = 0;
 
 #define SENSOR_PIN 2
