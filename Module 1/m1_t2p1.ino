@@ -12,7 +12,6 @@ void setup()
 
   attachInterrupt(digitalPinToInterrupt(sensorPin), toggle, FALLING);
   
-  Serial.println("Motion Sensing");  
 }
 
 void loop(){
@@ -20,6 +19,13 @@ void loop(){
 }
 
 void toggle(){
-	ledState = !ledState;
-	digitalWrite(yellowLED, ledState);
+  ledState = !ledState;
+  digitalWrite(yellowLED, ledState);
+  if(ledState == HIGH){
+    Serial.println("LED ON");
+  }
+  else{
+  	Serial.println("LED OFF");
+  }
+  	
 }
