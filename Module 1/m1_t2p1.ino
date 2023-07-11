@@ -1,5 +1,5 @@
 #define sensorPin 2
-#define ledBuiltIn 3
+#define yellowLED 3
 
 uint8_t ledState = LOW;
 
@@ -8,7 +8,7 @@ void setup()
   Serial.begin(9600);
   
   pinMode(sensorPin, INPUT);  
-  pinMode(ledBuiltIn, OUTPUT);
+  pinMode(yellowLED, OUTPUT);
 
   attachInterrupt(digitalPinToInterrupt(sensorPin), toggle, FALLING);
   
@@ -21,5 +21,5 @@ void loop(){
 
 void toggle(){
 	ledState = !ledState;
-	digitalWrite(ledBuiltIn, ledState);
+	digitalWrite(yellowLED, ledState);
 }
