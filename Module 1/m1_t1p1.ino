@@ -1,11 +1,11 @@
 #define sensorPin 2
-#define ledBuiltIn 3
+#define yellowLED 3
 
 void setup()
 {
   Serial.begin(9600);
   pinMode(sensorPin, INPUT);
-  pinMode(ledBuiltIn, OUTPUT);
+  pinMode(yellowLED, OUTPUT);
 
   Serial.println("Motion Sensing");  
 }
@@ -18,13 +18,13 @@ void loop()
   if(sensorValue == HIGH){
     Serial.println("Motion Detected");
     
-    digitalWrite(ledBuiltIn, HIGH);
+    digitalWrite(yellowLED, HIGH);
     delay(750);
   }
   
   else{
     Serial.println("No motion");
-    digitalWrite(ledBuiltIn, LOW);
+    digitalWrite(yellowLED, LOW);
     delay(750);
   }
   
